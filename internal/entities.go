@@ -10,7 +10,8 @@ type Bank struct {
 }
 
 type BankAccount struct {
-	Owner    uuid.UUID
+	Id       uuid.UUID
+	OwnerId  uuid.UUID // ref BankAccountOwner
 	Name     string
 	Accounts []Account
 	Depots   []Depot
@@ -24,12 +25,14 @@ type BankAccountOwner struct {
 
 type Account struct {
 	Id            uuid.UUID
-	AccountNumber string
 	Name          string // Girokonto, etc
+	AccountNumber string
 }
 
 type Depot struct {
 	Id             uuid.UUID
+	Name           string
+	DepotNumber    string
 	Transactions   []Transaction
 	DepotPositions []DepotPosition
 }

@@ -1,17 +1,19 @@
 package internal
 
-import "time"
+import (
+	"time"
+)
 
 type IBank interface {
-	OpenBankAccount(OpenAccountCommand) (BankAccount, error)
+	OpenBankAccount(OpenAccountCommand) (IBankAccount, error)
 	CloseBankAccount()
 	RebookSecurity()
 }
 
 type IBankAccount interface {
-	OpenAccount() (Account, error)
+	OpenAccount() (IAccount, error)
 	CloseAccount() error
-	OpenDepot(OpenDepotCommand) (Depot, error)
+	OpenDepot(OpenDepotCommand) (IDepot, error)
 	CloseDepot(CloseDepotCommand) error
 	BankAccountValue(time.Time)
 }
@@ -21,14 +23,17 @@ type IAccount interface {
 }
 
 type IDepot interface {
-	BuySecurity() (Transaction, error)
-	SellSecurity() (Transaction, error)
-	DepotPosition(Isin string, PointInTime time.Time) (DepotPosition, error)
+	BuySecurity() (ITransactionEvent, error)
+	SellSecurity() (ITransactionEvent, error)
+	DepotPosition(Isin string, PointInTime time.Time) (IDepotPosition, error)
 	// PositionValue(Isin string, PointInTime time.Time)
 	TotalDepotValueCurrent()
 	TotalDepotValue(time.Time)
 	TotalDepotValueChange(time.Time)
 	RebookSecurity()
+}
+
+type ITransactionEvent interface {
 }
 
 type IDepotPosition interface {
