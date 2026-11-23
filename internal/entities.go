@@ -24,7 +24,7 @@ type BankAccountOwner struct {
 
 type Account struct {
 	Id            uuid.UUID
-	AccountNumber string // 61883875
+	AccountNumber string
 	Name          string // Girokonto, etc
 }
 
