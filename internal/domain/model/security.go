@@ -4,6 +4,6 @@ import "uuid"
 
 type Security struct {
 	Id   uuid.UUID
-	Isin string
+	Isin string // Should the ISIN be the ultimate identifier
 	Gics GICS
 }
