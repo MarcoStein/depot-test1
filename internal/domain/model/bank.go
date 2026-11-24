@@ -1,7 +1,8 @@
 package model
 
 type Bank struct {
-	BankAccounts []BankAccount
+	bankAccounts BankAccounts
+	isin         string
 }
 
 func (b *Bank) openBankAccount() error

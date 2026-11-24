@@ -5,8 +5,6 @@ import (
 	"uuid"
 )
 
-type BackAccounts []BankAccount
-
 type BankAccount struct {
 	Id       uuid.UUID
 	OwnerId  uuid.UUID // ref BankAccountOwner
@@ -14,6 +12,8 @@ type BankAccount struct {
 	Accounts []Account
 	Depots   []Depot
 }
+
+type BankAccounts []BankAccount
 
 func (ba *BankAccount) openAccount() error
 func (ba *BankAccount) closeAccount() error

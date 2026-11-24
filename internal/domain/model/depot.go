@@ -9,8 +9,8 @@ type Depot struct {
 	Id             uuid.UUID
 	Name           string
 	DepotNumber    string
-	Transactions   []Transaction
-	DepotPositions []DepotPosition
+	Transactions   Transactions
+	DepotPositions DepotPositions
 }
 
 func (d *Depot) buySecurity() error

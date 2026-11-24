@@ -10,3 +10,5 @@ type Transaction struct {
 	performed_at time.Time
 	SecurityId   uuid.UUID // the involved security
 }
+
+type Transactions []Transaction
